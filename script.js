@@ -21,67 +21,34 @@ function computerChoice() {
 }
 
 function playerChoice() {
-    let playerChoice = prompt("Type rock, paper, or scissors");
+    const rock = document.querySelector('#rock');
+    const paper = document.querySelector('#paper');
+    const scissors = document.querySelector('#scissors');
 
-    playerChoice = playerChoice.toLowerCase();
-
-    return playerChoice;
+    rock.addEventListener('click', () => {
+        return rock
+    });
+    paper.addEventListener('click', () => {
+        return 'paper'
+    });
+    scissors.addEventListener('click', () => {
+        return 'scissors'
+    });
 }
 function playRound(playerSelection, computerSelection) {
 
-    let result
-
     if (playerSelection == computerSelection){
-        return result = "tie";
+        return "tie";
     }else if (playerSelection=="rock" && computerSelection=="scissors"){
-        return result = "player";
+        return "player";
     } else if (playerSelection == "paper" && computerSelection == "rock"){
-        return result = "player";
+        return "player";
     } else if(playerSelection == "scissors" && computerSelection == "paper"){
-        return result = "player";
+        return "player";
     } else {
-        return result = "computer";
+        return "computer";
     }
 }
 
-function checkScore(player, computer){
-    let score
 
-    if (player > computer){
-        return score =`${player}:${computer} Player`;
-    } else if (player < computer){
-         return score =`${computer}:${player} Computer`;
-    } else{
-        return score =`Tied at ${player}`;
-    }
-}
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-
-
-    for (let i = 0; i<5; i++){
-
-       switch (playRound(playerChoice(), computerChoice())) {
-            case "player":
-                playerScore++;
-                console.log("Player wins!");
-                break;
-            case "computer":
-                computerScore++;
-                console.log("Computer wins!");
-                break;
-            case "tie":
-                console.log("Tie!");
-                break;
-            case "fail":
-                console.log('fuck you')
-                break;
-       }
-       console.log(`Score: ${checkScore(playerScore, computerScore)}`);
-    }
-    console.log(`Final Score: ${checkScore(playerScore, computerScore)}`);
-}
-
-game()
+playerChoice()
