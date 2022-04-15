@@ -26,8 +26,6 @@ function computerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 
-    console.log('clicked')
-
     if (playerSelection == computerSelection){
         setScore('tie');
     }else if (playerSelection=='rock' && computerSelection=='scissors'){
@@ -46,6 +44,7 @@ function setScore(result){
     let computerScore = 0;
     const player = document.querySelector('#player');
     const computer = document.querySelector('#computer');
+    const container = document.querySelector('.rounds')
 
         if(result == 'player'){
             playerScore++;
@@ -54,8 +53,25 @@ function setScore(result){
             computerScore++;
             computer.querySelector('.score').textContent = computerScore;
         }
-       round++
-       console.log(round)
+
+        switch(round) {
+            case 1:
+                container.querySelector('#one').style.backgroundColor = '#32d147'
+                break;
+            case 2:
+                container.querySelector('#two').style.backgroundColor = '#32d147'
+                break;
+            case 3:
+                container.querySelector('#three').style.backgroundColor = '#32d147'
+                break;
+            case 4:
+                container.querySelector('#four').style.backgroundColor = '#32d147'
+                break;
+            case 5:
+                container.querySelector('#five').style.backgroundColor = '#32d147'
+                break;
+        }
+        round++   
 }
 
 rock.addEventListener('click', () => {
